@@ -17,7 +17,7 @@ if (!is_null($events['ref'])) {
     $projectName=$events['repository']['full_name'];
 }
 
-var allMessage="Project:".$projectName." Branch:".$branch." User:".$userCommit." Commit:".$commitMessage." Url:".$url;
+$allMessage="Project:".$projectName." Branch:".$branch." User:".$userCommit." Commit:".$commitMessage." Url:".$url;
 
 define('LINE_API',"https://notify-api.line.me/api/notify");
 define('LINE_TOKEN','p1Htn19ebepP3RnHCyN4o4z9ngvyhZ7mmY4yLRRub5V');
@@ -41,5 +41,5 @@ function notify_message($message){
 	return $res;
 }
 
-$res = notify_message(allMessage);
+$res = notify_message($allMessage);
 var_dump($res);
