@@ -6,13 +6,17 @@ $events = json_decode($content, true);
 $branch = "";
 $commitMessage="";
 $projectName="";
+$userCommit="";
+$url="";
 if (!is_null($events['ref'])) {
     $branch=$events['ref'];
     $commitMessage=$events['commits'][0]['message'];
+    $url=$events['commits'][0]['url'];
+    $userCommit=$events['commits'][0]['author']['email'];
     $projectName=$events['repository']['full_name'];
 }
 
-var_dump($projectName.$branch.$commitMessage);
+var_dump($projectName ." ". $branch." ".$userCommit." ".$commitMessage." ".$url);
 
 define('LINE_API',"https://notify-api.line.me/api/notify");
 define('LINE_TOKEN','p1Htn19ebepP3RnHCyN4o4z9ngvyhZ7mmY4yLRRub5V');
