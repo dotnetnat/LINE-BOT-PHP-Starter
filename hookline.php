@@ -8,7 +8,7 @@ if (!is_null($events['ref'])) {
 }
 
 $data = [
-        'message' => 'ทดสอบ from Gogs',
+        'message' = 'ทดสอบ from Gogs'
 ];
 $post = json_encode($data);
 $access_token = 'p1Htn19ebepP3RnHCyN4o4z9ngvyhZ7mmY4yLRRub5V';
