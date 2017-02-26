@@ -4,7 +4,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 if (!is_null($events['ref'])) {
-    echo "Ref";
+    var_dump($events);
 }
 
 define('LINE_API',"https://notify-api.line.me/api/notify");
@@ -28,5 +28,6 @@ function notify_message($message){
     $res = json_decode($result);
 	return $res;
 }
-$res = notify_message('hello from gogs');
-var_dump($res);
+
+//$res = notify_message('hello from gogs');
+//var_dump($res);
