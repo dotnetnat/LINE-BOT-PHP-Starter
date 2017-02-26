@@ -41,5 +41,6 @@ function notify_message($message){
 	return $res;
 }
 
-$res = notify_message($allMessage);
+$res1 = notify_message($branch);
+$res =notify_message($commitMessage);
 var_dump($res);
