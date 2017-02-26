@@ -4,11 +4,13 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 $branch = "";
+$commitMessage="";
 if (!is_null($events['ref'])) {
     $branch=$events['ref'];
+    $commitMessage=$events['commits'][0]['message'];
 }
 
-var_dump($branch);
+var_dump($commitMessage);
 
 define('LINE_API',"https://notify-api.line.me/api/notify");
 define('LINE_TOKEN','p1Htn19ebepP3RnHCyN4o4z9ngvyhZ7mmY4yLRRub5V');
