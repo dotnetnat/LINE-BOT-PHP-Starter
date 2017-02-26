@@ -5,12 +5,14 @@ $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 $branch = "";
 $commitMessage="";
+$projectName="";
 if (!is_null($events['ref'])) {
     $branch=$events['ref'];
     $commitMessage=$events['commits'][0]['message'];
+    $projectName=$events['repository']['full_name'];
 }
 
-var_dump($commitMessage);
+var_dump($projectName.$branch.$commitMessage);
 
 define('LINE_API',"https://notify-api.line.me/api/notify");
 define('LINE_TOKEN','p1Htn19ebepP3RnHCyN4o4z9ngvyhZ7mmY4yLRRub5V');
