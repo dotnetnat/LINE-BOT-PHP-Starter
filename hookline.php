@@ -3,9 +3,12 @@
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+$branch = "";
 if (!is_null($events['ref'])) {
-    var_dump($events['ref']);
+    $branch=$events['ref'];
 }
+
+var_dump($branch);
 
 define('LINE_API',"https://notify-api.line.me/api/notify");
 define('LINE_TOKEN','p1Htn19ebepP3RnHCyN4o4z9ngvyhZ7mmY4yLRRub5V');
